@@ -1,0 +1,116 @@
+voxwave@voxbox:~/docker$ docker run -d nginx
+8e4133a403c6e766dbd35a27f5eac95402563b33f0fceee4840a65503e3546ee
+voxwave@voxbox:~/docker$ docker run -d nginx
+a69dccc059dcfff3aca57cd806ebc4a17c09c01fe1fd5c4368afdb4149e1b009
+^[[Avoxwave@voxbox:~/docker$ docker run -d nginx
+5231b16d9c61fd3db648feebc25527db1765dc6b0118bb6328e11f893b69865b
+voxwave@voxbox:~/docker$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+5231b16d9c61        nginx               "nginx -g 'daemon of…"   15 seconds ago      Up 12 seconds       80/tcp              practical_fermat
+a69dccc059dc        nginx               "nginx -g 'daemon of…"   19 seconds ago      Up 16 seconds       80/tcp              gifted_sanderson
+8e4133a403c6        nginx               "nginx -g 'daemon of…"   23 seconds ago      Up 20 seconds       80/tcp              sleepy_noether
+voxwave@voxbox:~/docker$ docker stop 523
+523
+voxwave@voxbox:~/docker$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS               NAMES
+a69dccc059dc        nginx               "nginx -g 'daemon of…"   About a minute ago   Up About a minute   80/tcp              gifted_sanderson
+8e4133a403c6        nginx               "nginx -g 'daemon of…"   About a minute ago   Up About a minute   80/tcp              sleepy_noether
+voxwave@voxbox:~/docker$ docker stop a6
+a6
+voxwave@voxbox:~/docker$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+8e4133a403c6        nginx               "nginx -g 'daemon of…"   2 minutes ago       Up 2 minutes        80/tcp              sleepy_noether
+voxwave@voxbox:~/docker$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                          PORTS               NAMES
+5231b16d9c61        nginx               "nginx -g 'daemon of…"   3 minutes ago       Exited (0) 2 minutes ago                            practical_fermat
+a69dccc059dc        nginx               "nginx -g 'daemon of…"   3 minutes ago       Exited (0) About a minute ago                       gifted_sanderson
+8e4133a403c6        nginx               "nginx -g 'daemon of…"   3 minutes ago       Up 3 minutes                    80/tcp              sleepy_noether
+d3ca39f2a145        nginx               "--detach"               5 minutes ago       Created                         80/tcp              sharp_blackwell
+4d9c9041bc62        nginx               "nginx -g 'daemon of…"   8 minutes ago       Exited (0) 6 minutes ago                            friendly_wright
+f1d09fda67e0        fav_distro:xenial   "/bin/bash"              11 minutes ago      Exited (0) 11 minutes ago                           elastic_burnell
+13f850107498        fav_distro:xenial   "uptime"                 7 days ago          Exited (0) 7 days ago                               determined_jones
+voxwave@voxbox:~/docker$ docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+a69dccc059dcfff3aca57cd806ebc4a17c09c01fe1fd5c4368afdb4149e1b009
+8e4133a403c6e766dbd35a27f5eac95402563b33f0fceee4840a65503e3546ee
+d3ca39f2a1458efb76c14371d26ee4fa44c729688633a93e281fb4d2b8365c8c
+4d9c9041bc62bbe980dc257d0f0c44b2bffdeafb7f262d8423139a9e99d972df
+f1d09fda67e02eddf66016db2696130ede2bbdafed81d54c6c0924b4351e8be9
+13f8501074982650e53067b442755a1de59d3d337d099e77fada1fb72440dfab
+
+Total reclaimed space: 0B
+voxwave@voxbox:~/docker$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+voxwave@voxbox:~/docker$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              02256cfb0e4b        46 hours ago        109MB
+docker/compose      1.23.2              65f21bf3ffc9        4 weeks ago         63.5MB
+fav_distro          xenial              a51debf7e1eb        5 weeks ago         116MB
+ubuntu              16.04               a51debf7e1eb        5 weeks ago         116MB
+ubuntu              xenial              a51debf7e1eb        5 weeks ago         116MB
+ubuntu              latest              93fd78260bd1        5 weeks ago         86.2MB
+voxwave@voxbox:~/docker$ docker rmi nginx:latest 
+Untagged: nginx:latest
+Untagged: nginx@sha256:333a036f4f8cd2314bdf339a5c72440e011071831699abefe03b73442d9b0045
+Deleted: sha256:02256cfb0e4bd19bdb74a077cee8ab26dd14d2e54402878a848e172a85a5cec7
+Deleted: sha256:ac016a366692f4540270a300262445d81bd2fbfc66f536b71d292fa57f7e20eb
+Deleted: sha256:b40dc7b9491a10b0439a24601f48bb92a54157aab577117cd0fda1c7d67d1e82
+Deleted: sha256:ef68f6734aa485edf13a8509fe60e4272428deaf63f446a441b79d47fc5d17d3
+voxwave@voxbox:~/docker$ docker rmi ubuntu
+Untagged: ubuntu:latest
+Untagged: ubuntu@sha256:6d0e0c26489e33f5a6f0020edface2727db9489744ecc9b4f50c7fa671f23c49
+Deleted: sha256:93fd78260bd1495afb484371928661f63e64be306b7ac48e2d13ce9422dfee26
+Deleted: sha256:1c8cd755b52d6656df927bc8716ee0905853fada7ca200e4e6954bd010e792bb
+Deleted: sha256:9203aabb0b583c3cf927d2caf6ba5b11124b0a23f8d19afadb7b071049c3cf26
+Deleted: sha256:32f84095aed5a2e947b12a3813f019fc69f159cb5c7eae5dad69b2d98ffbeca4
+Deleted: sha256:bc7f4b25d0ae3524466891c41cefc7c6833c533e00ba80f8063c68da9a8b65fe
+voxwave@voxbox:~/docker$ docker images ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+voxwave@voxbox:~/docker$ docker image ls 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker/compose      1.23.2              65f21bf3ffc9        4 weeks ago         63.5MB
+fav_distro          xenial              a51debf7e1eb        5 weeks ago         116MB
+ubuntu              16.04               a51debf7e1eb        5 weeks ago         116MB
+ubuntu              xenial              a51debf7e1eb        5 weeks ago         116MB
+voxwave@voxbox:~/docker$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker/compose      1.23.2              65f21bf3ffc9        4 weeks ago         63.5MB
+fav_distro          xenial              a51debf7e1eb        5 weeks ago         116MB
+ubuntu              16.04               a51debf7e1eb        5 weeks ago         116MB
+ubuntu              xenial              a51debf7e1eb        5 weeks ago         116MB
+voxwave@voxbox:~/docker$ docker rmi docker/compose
+Error: No such image: docker/compose
+voxwave@voxbox:~/docker$ docker rmi docker/compose:1.23.2 
+Untagged: docker/compose:1.23.2
+Untagged: docker/compose@sha256:f6e4963cd17f709fb57f7cf0842e269ed6ba173c3490055b50c701a257feb860
+Deleted: sha256:65f21bf3ffc929410490621982ff648d02f268fefb063f55dc3129eb70a9cdf3
+Deleted: sha256:8ac00c20e318984eb6ed5adc16b9ca96ca84c76246ea19edf667a7850bfe194a
+Deleted: sha256:67ffcd5f82b16b3c8010120e2bfa8965fcd426ca6e62ae39d132b7237d726c8f
+Deleted: sha256:c2761298846cb2d8aa50f2c850ee06807df909af8d759a985ba647dbc28eb0c8
+Deleted: sha256:df64d3292fd6194b7865d7326af5255db6d81e9df29f48adde61a918fbd8c332
+voxwave@voxbox:~/docker$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+fav_distro          xenial              a51debf7e1eb        5 weeks ago         116MB
+ubuntu              16.04               a51debf7e1eb        5 weeks ago         116MB
+ubuntu              xenial              a51debf7e1eb        5 weeks ago         116MB
+voxwave@voxbox:~/docker$ docker rmi fav_distro:xenial 
+Untagged: fav_distro:xenial
+voxwave@voxbox:~/docker$ docker rmi ubuntu:
+Error response from daemon: invalid reference format
+voxwave@voxbox:~/docker$ docker rmi ubuntu:
+16.04   xenial  
+voxwave@voxbox:~/docker$ docker rmi ubuntu:16.04 
+Untagged: ubuntu:16.04
+voxwave@voxbox:~/docker$ docker rmi ubuntu:xenial
+Untagged: ubuntu:xenial
+Untagged: ubuntu@sha256:e547ecaba7d078800c358082088e6cc710c3affd1b975601792ec701c80cdd39
+Deleted: sha256:a51debf7e1eb2018400cef1e4b01f2e9f591f6c739de7b5d6c142f954f3715a7
+Deleted: sha256:ad38d0b8ff5e07d6875cb39931e2c79fb90cf142584ea813437b013d3639678f
+Deleted: sha256:8ae3e0d35735ff77e9ef2a15816747b01316225829ece78dbc41bc50eddb7dfe
+Deleted: sha256:a6a57518ff0cc0e30c0e5c964abc052038413f57cd570bd89ab4e4493741a5b3
+Deleted: sha256:41c002c8a6fd36397892dc6dc36813aaa1be3298be4de93e4fe1f40b9c358d99
+voxwave@voxbox:~/docker$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
