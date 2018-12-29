@@ -1,0 +1,13 @@
+docker run -it --name curly ubuntu:16.04 sh -c 'apt-get update; apt-get install curl; read website; sleep 3; curl http://$website;'
+y
+helsinki.fi
+
+or
+
+docker run -itd --name curly ubuntu:16.04 sh -c 'read website; sleep 3; curl http://$website;'
+docker exec -it curly bash
+apt-get update
+apt-get install curl
+exit
+docker attach curly
+helsinki.fi
