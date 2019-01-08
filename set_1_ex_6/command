@@ -1,0 +1,1 @@
+docker run -it -p 8000:8000 -v /home/voxwave/git/docker-excercises/set_1_ex_6/logs.txt:/backend-example-docker/logs.txt ex6
